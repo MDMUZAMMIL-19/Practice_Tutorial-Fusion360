@@ -1,6 +1,6 @@
 # Practice_Tutorial-Fusion360
 
-This repository contains a collection of PCB design projects that I have completed as part of my learning journey using Fusion360 software. These projects are based on various tutorials I followed on YouTube.
+This repository contains a collection of design projects that I have completed as part of my learning journey using Fusion360 software. These projects are based on various tutorials I followed on YouTube.
 
 Contents
 This repository includes the following:
