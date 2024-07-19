@@ -1,0 +1,44 @@
+#include <ESP8266WiFi.h>
+
+const int gasSensorPin = A0;
+const int buzzerPin = D1;
+const int motorPin1 = D2;
+const int motorPin2 = D3;
+const int motorPin3 = D4;
+const int motorPin4 = D5;
+
+void setup() {
+  pinMode(gasSensorPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(motorPin1, OUTPUT);
+  pinMode(motorPin2, OUTPUT);
+  pinMode(motorPin3, OUTPUT);
+  pinMode(motorPin4, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop() {
+  int gasLevel = analogRead(gasSensorPin);
+  Serial.println(gasLevel);
+
+  if (gasLevel > 400) {
+    digitalWrite(buzzerPin, HIGH);
+    moveToSafeLocation();
+  } else {
+    digitalWrite(buzzerPin, LOW);
+  }
+
+  delay(1000);
+}
+
+void moveToSafeLocation() {
+  digitalWrite(motorPin1, HIGH);
+  digitalWrite(motorPin2, LOW);
+  digitalWrite(motorPin3, HIGH);
+  digitalWrite(motorPin4, LOW);
+  delay(1000);
+  digitalWrite(motorPin1, LOW);
+  digitalWrite(motorPin2, LOW);
+  digitalWrite(motorPin3, LOW);
+  digitalWrite(motorPin4, LOW);
+}
